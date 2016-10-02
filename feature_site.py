@@ -1,5 +1,6 @@
 import csv
 import numpy as np
+import math
 
 with open('data/populacao_tempo.csv', 'r') as arquivo:
     data = csv.reader(arquivo, delimiter=";")
@@ -31,22 +32,26 @@ print("Variância:", variancia_populacao)
 print("Desvio padrão", desvio_padrao_populacao)
 
 media_amostra = np.mean(y)
-variancia_amostra = np.var(y)
-desvio_padrao_amostra = np.sqrt(variancia_amostra)
 print("\nMédia da amostra:", media_amostra)
-print("Variância da amostra:", variancia_amostra)
-print("Desvio padrão da amostra", desvio_padrao_amostra)
-print("Tamanho da amostra:", tamanho_amostra)
+
 
 #hipotese 0: media populacional é igual 1.9983
 #hipotese 1: media populacional é diferente de 1.9983
+#alfa = 0.05
+# isso faz z = 1.96
+z = 1.96
 
 
-def calcula_z(media_populacao, desvio_padrao_populacao, media_amostra, tamanho_amostra):
-    numerador = (media_amostra - media_populacao)
-    denominador = (desvio_padrao_populacao/tamanho_amostra)
-    return numerador/denominador
+def calcula_desvio_padrao_amostra(desvio_padrao_populacao, tamanho_amostra):
+    return desvio_padrao_populacao/math.sqrt(tamanho_amostra)
 
-z = calcula_z(media_populacao, desvio_padrao_populacao, media_amostra, tamanho_amostra)
-alfa = 0.05
 
+def calcula_x_critico(z, desvio_padrao_amostral, mi):
+    x_critico = z * desvio_padrao_amostral
+    x_critico += mi
+    return x_critico
+
+desvio_padrao_amostral = calcula_desvio_padrao_amostra(desvio_padrao_populacao, tamanho_amostra)
+x_critico = calcula_x_critico(z, desvio_padrao_amostral, media_populacao)
+
+print("x crítico", x_critico)
