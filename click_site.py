@@ -1,6 +1,4 @@
 import csv
-import numpy as np
-import math
 
 with open('data/amostra_A_click.csv', 'r') as arquivo:
     data = csv.reader(arquivo, delimiter=";")
