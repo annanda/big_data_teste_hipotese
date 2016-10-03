@@ -1,6 +1,10 @@
 import csv
 import numpy as np
 import math
+from scipy import stats
+import pylab as pl
+import matplotlib.mlab as mlab
+import matplotlib.pyplot as plt
 
 with open('data/populacao_tempo.csv', 'r') as arquivo:
     data = csv.reader(arquivo, delimiter=";")
@@ -55,3 +59,8 @@ desvio_padrao_amostral = calcula_desvio_padrao_amostra(desvio_padrao_populacao, 
 x_critico = calcula_x_critico(z, desvio_padrao_amostral, media_populacao)
 
 print("x crítico", x_critico)
+
+pl.hist(x, 50,  normed=1, color="yellow", alpha=1, label="Sem play")      #use this to draw histogram of your data
+pl.hist(y, 50,  normed=1, color="red", alpha=0.5, label="Com play automático")
+pl.legend()
+pl.show()
