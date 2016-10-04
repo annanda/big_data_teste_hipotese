@@ -64,3 +64,10 @@ pl.hist(x, 50,  normed=1, color="yellow", alpha=1, label="Sem play")      #use t
 pl.hist(y, 50,  normed=1, color="red", alpha=0.5, label="Com play automático")
 pl.legend()
 pl.show()
+
+# Média: 1.9983
+# Variância: 3.98064
+# Desvio padrão 1.99516
+#
+# Média da amostra: 3.47206
+# x crítico 2.12195822331

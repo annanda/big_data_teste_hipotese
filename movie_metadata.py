@@ -36,3 +36,8 @@ print(coeficiente)
 print(p_valor)
 print(tamanho_amostra)
 print(significancia_spearman(coeficiente, tamanho_amostra))
+
+# -0.0857963196288
+# 1.04427916499e-09
+# 5043
+# -6.11408316675

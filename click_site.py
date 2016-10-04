@@ -57,3 +57,5 @@ def calcula_qui_quadrado(tabela_observada, tabela_esperada):
 
 qui_quadrado = calcula_qui_quadrado(tabela_observada,tabela_esperada)
 print(qui_quadrado)
+
+# 13.293900961620135
